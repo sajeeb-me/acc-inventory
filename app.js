@@ -7,9 +7,13 @@ const mongoose = require('mongoose');
 app.use(express.json());
 app.use(cors());
 
+// routes
+const productRoute = require('./routes/product.route');
+
 app.get('/', (req, res) => {
     res.send('A well structured inventory api is coming soon!')
 })
 
+app.use('/api/v1/product', productRoute)
 
 module.exports = app;
