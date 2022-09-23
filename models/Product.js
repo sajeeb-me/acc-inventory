@@ -24,7 +24,7 @@ const productSchema = mongoose.Schema({
             message: "Unit can't be {VALUE}, must be kg/litre/pcs/bag"
         }
     },
-    imageUrls: [{
+    imageURLs: [{
         type: String,
         required: true,
         validate: {
