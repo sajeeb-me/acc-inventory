@@ -7,5 +7,9 @@ const mongoose = require('mongoose');
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('A well structured inventory api is coming soon!')
+})
+
 
 module.exports = app;
