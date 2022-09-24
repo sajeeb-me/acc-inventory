@@ -35,3 +35,29 @@ exports.createBrand = async (req, res, next) => {
         });
     }
 }
+
+exports.getBrandById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const brand = await brandsService.getBrandByIdService(id);
+
+        if (!brand) {
+            res.status(400).json({
+                status: "failed",
+                message: "Can't get the brand with this id."
+            })
+        }
+
+        res.status(200).json({
+            status: "success",
+            message: "Successfully get the brand",
+            data: brand,
+        })
+    } catch (error) {
+        res.status(400).json({
+            status: "failed",
+            message: "Can't get the brand",
+            error: error.message,
+        });
+    }
+}

@@ -10,3 +10,8 @@ exports.createBrandService = async (data) => {
     const result = await Brand.create(data);
     return result;
 }
+
+exports.getBrandByIdService = async (brandId) => {
+    const brand = await Brand.findOne({ _id: brandId });
+    return brand;
+}

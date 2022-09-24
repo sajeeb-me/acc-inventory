@@ -5,6 +5,9 @@ const brandController = require('../controllers/brand.controller');
 
 router.route('/')
     .get(brandController.getBrands)
-    .post(brandController.createBrand)
+    .post(brandController.createBrand);
+
+router.route('/:id')
+    .get(brandController.getBrandById)
 
 module.exports = router;
