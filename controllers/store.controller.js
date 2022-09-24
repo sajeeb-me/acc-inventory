@@ -1,82 +1,82 @@
-const brandsService = require("../services/brand.service");
+const storeService = require("../services/store.service");
 
 
-exports.getBrands = async (req, res, next) => {
+exports.getStores = async (req, res, next) => {
     try {
-        const brands = await brandsService.getBrandsService();
+        const stores = await storeService.getStoresService();
 
         res.status(200).json({
             status: "success",
-            message: "Successfully get all brands",
-            data: brands
+            message: "Successfully get all stores",
+            data: stores
         })
     } catch (error) {
         res.status(400).json({
             status: "failed",
-            message: "Can't get the brands",
+            message: "Can't get the stores",
             error: error.message,
         });
     }
 }
 
-exports.createBrand = async (req, res, next) => {
+exports.createStore = async (req, res, next) => {
     try {
-        const result = await brandsService.createBrandService(req.body);
+        const result = await storeService.createStoreService(req.body);
 
         res.status(200).json({
             status: "success",
-            message: "Successfully created the brand"
+            message: "Successfully created the store"
         })
     } catch (error) {
         res.status(400).json({
             status: "failed",
-            message: "Can't create the brand",
+            message: "Can't create the store",
             error: error.message,
         });
     }
 }
 
-exports.getBrandById = async (req, res, next) => {
+exports.getStoreById = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const brand = await brandsService.getBrandByIdService(id);
+        const store = await storeService.getStoreByIdService(id);
 
-        if (!brand) {
+        if (!store) {
             res.status(400).json({
                 status: "failed",
-                message: "Can't get the brand with this id."
+                message: "Can't get the store with this id."
             })
         } else {
             res.status(200).json({
                 status: "success",
-                message: "Successfully get the brand",
-                data: brand,
+                message: "Successfully get the store",
+                data: store,
             })
         }
 
     } catch (error) {
         res.status(400).json({
             status: "failed",
-            message: "Can't get the brand",
+            message: "Can't get the store",
             error: error.message,
         });
     }
 }
 
-exports.updateBrand = async (req, res, next) => {
+exports.updateStore = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const result = await brandsService.updateBrandService(id, req.body);
+        const result = await storeService.updateStoreService(id, req.body);
 
         if (!result.modifiedCount) {
             res.status(400).json({
                 status: "failed",
-                message: "Can't update the brand with this id."
+                message: "Can't update the store with this id."
             })
         } else {
             res.status(200).json({
                 status: "success",
-                message: "Successfully updated the brand",
+                message: "Successfully updated the store",
                 data: result,
             })
         }
@@ -84,7 +84,7 @@ exports.updateBrand = async (req, res, next) => {
     } catch (error) {
         res.status(400).json({
             status: "failed",
-            message: "Can't update the brand",
+            message: "Can't update the store",
             error: error.message,
         });
     }

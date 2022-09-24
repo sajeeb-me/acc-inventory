@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Dhaka",
+        "description": "Dhaka store is our head office",
+        "manager": "md manager"
+    },
+    {
+        "name": "Sylhet",
+        "description": "Sylhet store is our second office",
+        "manager": "md sylhety manager"
+    }
+]
